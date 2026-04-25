@@ -1,5 +1,3 @@
-# dsc106-spr26-project2-viz
-
 # DSC 106 Project 2: Persuasive or Deceptive Visualization
 
 This repo contains our DSC 106 Project 2 submission on persuasive and deceptive visualization.
