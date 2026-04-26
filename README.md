@@ -3,22 +3,24 @@
 This repo contains our DSC 106 Project 2 submission on persuasive and deceptive visualization.
 
 ## Live Report
-[View the final HTML report here](PASTE-YOUR-GITHUB-PAGES-LINK-HERE)
+[View the final HTML report here]([PASTE-YOUR-GITHUB-PAGES-LINK-HERE/project2_report.html](https://github.com/bigmacchung/dsc106-spr26-project2-viz/blob/main/project2_report.html)
+
+## Course Website
+[View the DSC 106 Project 2 instructions here](https://dsc106.com/projects/project2/)
 
 ## Project Overview
 Using one dataset, we designed two opposing visualizations around the same proposition:
+
 - one visualization argues **for** the proposition
 - one visualization argues **against** the proposition
 
-The project explores how visual design, framing, and data transformation can shape interpretation. :contentReference[oaicite:1]{index=1}
+The project explores how visual design, framing, and data transformation can shape interpretation.
 
 ## Repo Structure
-- `index.html` — final project report
+- `project2_report.html` — final project report
 - `data/` — dataset files
 - `images/` — exported charts and figures
 - `README.md` — project summary
-
-- 
 
 ## Team
 - Name 1 — email@ucsd.edu
@@ -28,13 +30,11 @@ The project explores how visual design, framing, and data transformation can sha
 
 ## What’s Included
 Our final report includes:
+
 - the proposition
 - two opposing visualizations
 - design decisions and rationale for each
-- a short reflection on ethics and persuasion in visualization. :contentReference[oaicite:2]{index=2}
+- a short reflection on ethics and persuasion in visualization
 
 ## Notes
 Please open the live HTML version for the full write-up and visuals.
-
-## Course Website
-[View the DSC 106 course website here](https://dsc106.com/projects/project2/)
