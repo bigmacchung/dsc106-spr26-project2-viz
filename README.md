@@ -33,3 +33,6 @@ Our final report includes:
 
 ## Notes
 Please open the live HTML version for the full write-up and visuals.
+
+## Course Website
+[View the DSC 106 course website here]([(https://dsc106.com/projects/project2/])
