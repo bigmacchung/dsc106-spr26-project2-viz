@@ -1,2 +1,1 @@
-
-dataset folder
+Human Development Indicators, 1960–2020. The World Bank has tracked global human development by indicators such as economy, education, environment, gender equality, health, and science and technology since 1960. The linked repository contains indicators that have been cleaned and formatted to simplify visual analysis and visualization design. However, you’re also welcome to browse and use the original data by indicator or by country. Click on a category to download the CSV file on the right-hand sidebar.
