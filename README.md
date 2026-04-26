@@ -18,6 +18,8 @@ The project explores how visual design, framing, and data transformation can sha
 - `images/` — exported charts and figures
 - `README.md` — project summary
 
+- 
+
 ## Team
 - Name 1 — email@ucsd.edu
 - Name 2 — email@ucsd.edu
@@ -35,4 +37,4 @@ Our final report includes:
 Please open the live HTML version for the full write-up and visuals.
 
 ## Course Website
-[View the DSC 106 course website here]((https://dsc106.com/projects/project2/)
+[View the DSC 106 course website here](https://dsc106.com/projects/project2/)
