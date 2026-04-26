@@ -3,7 +3,7 @@
 This repo contains our DSC 106 Project 2 submission on persuasive and deceptive visualization.
 
 ## Live Report
-[View the final HTML report here]([PASTE-YOUR-GITHUB-PAGES-LINK-HERE/project2_report.html](https://github.com/bigmacchung/dsc106-spr26-project2-viz/blob/main/project2_report.html)
+[View the final HTML report here](https://github.com/bigmacchung/dsc106-spr26-project2-viz/blob/main/project2_report.html)
 
 ## Course Website
 [View the DSC 106 Project 2 instructions here](https://dsc106.com/projects/project2/)
