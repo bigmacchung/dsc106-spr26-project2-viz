@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Project 2 Report</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>DSC 106 Project 2 - Persuasive or Deceptive Visualization?</title>
         <style>
             :root {
                 --color-neutral-95: hsl(220 10% 95%);
@@ -14,84 +16,70 @@
                 --color-neutral-30: hsl(220 10% 30%);
                 --color-neutral-20: hsl(220 10% 20%);
                 --color-neutral-10: hsl(220 10% 10%);
+                --pro-accent: #c0392b;
+                --con-accent: #1f6fb5;
             }
 
             html {
-                font: 100%/1.5 system-ui;
+                font: 100%/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
                 counter-reset: figure;
                 background: var(--color-neutral-95);
                 max-width: min(75vw, 80em);
                 margin: 0 auto;
             }
 
-            /* Headings */
+            @media (max-width: 720px) {
+                html { max-width: 100%; }
+                main { padding: 0.1rem 1rem !important; border-radius: 0 !important; }
+            }
 
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6 {
-                line-height: 1.1;
+            h1, h2, h3, h4, h5, h6 {
+                line-height: 1.15;
                 font-weight: 600;
                 text-wrap: balance;
             }
 
-            h1,
-            h2 {
+            h1, h2 {
                 border-bottom: 1px solid var(--color-neutral-80);
                 padding-bottom: 0.2em;
             }
 
             h1 {
                 margin-block: 1em 0.5rem;
-                font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+                font-size: clamp(2em, 150% + 2vh + 2vw, 10vmin);
                 font-weight: 800;
-
-                small {
-                    display: block;
-                    width: fit-content;
-                    padding: 0.2em 0.5em;
-                    margin-inline: auto;
-                    color: white;
-                    background: var(--color-neutral-40);
-                    font-size: 40%;
-                    text-transform: uppercase;
-                    white-space: nowrap;
-                }
             }
 
-            h2 {
-                font-size: 180%;
-                color: var(--color-neutral-30);
+            h1 small {
+                display: block;
+                width: fit-content;
+                padding: 0.2em 0.5em;
+                margin-inline: auto;
+                color: white;
+                background: var(--color-neutral-40);
+                font-size: 40%;
+                text-transform: uppercase;
+                white-space: nowrap;
+                margin-bottom: 0.4em;
             }
 
-            h3 {
-                font-size: 130%;
-            }
+            h2 { font-size: 180%; color: var(--color-neutral-30); }
+            h3 { font-size: 130%; }
+            h4 { font-size: 110%; color: var(--color-neutral-40); margin-top: 1.5em; }
 
-            /* Lists */
-
-            ul,
-            ol {
-                padding-inline-start: 2em;
-            }
-
-            li {
-                &::marker {
-                    color: var(--color-neutral-40);
-                }
-
-                + li {
-                    margin-top: 0.2em;
-                }
-            }
-
-            /* Sectioning elements */
+            ul, ol { padding-inline-start: 2em; }
+            li::marker { color: var(--color-neutral-40); }
+            li + li { margin-top: 0.2em; }
 
             header {
-                padding-block: 1em;
+                padding-block: 1em 0.5em;
                 text-align: center;
+            }
+
+            .team {
+                color: var(--color-neutral-40);
+                font-size: 0.95em;
+                margin-block: 0.5em;
             }
 
             main {
@@ -101,42 +89,138 @@
                 padding: 0.1rem 2rem;
             }
 
-            /* Figures */
+            .proposition {
+                background: linear-gradient(135deg, hsl(48 95% 92%), hsl(48 95% 88%));
+                border: 1px solid hsl(48 60% 70%);
+                border-radius: 0.75rem;
+                padding: 1.25rem 1.5rem;
+                margin: 1.5rem 0 2rem;
+                font-size: 1.4em;
+                font-weight: 700;
+                line-height: 1.3;
+                color: var(--color-neutral-10);
+            }
+
+            .proposition::before {
+                content: "Proposition";
+                display: block;
+                font-size: 0.55em;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--color-neutral-40);
+                margin-bottom: 0.4em;
+            }
+
+            section.side {
+                margin-block: 2rem;
+                padding: 1.25rem 1.5rem;
+                border-radius: 0.75rem;
+                border-left: 6px solid;
+            }
+
+            section.side.pro {
+                background: hsl(0 50% 97%);
+                border-left-color: var(--pro-accent);
+            }
+
+            section.side.con {
+                background: hsl(212 50% 97%);
+                border-left-color: var(--con-accent);
+            }
+
+            .side-header {
+                display: inline-block;
+                padding: 0.2em 0.7em;
+                border-radius: 999px;
+                font-size: 0.8em;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                margin-bottom: 0.25em;
+                color: white;
+            }
+
+            .pro .side-header { background: var(--pro-accent); }
+            .con .side-header { background: var(--con-accent); }
 
             figure {
                 margin: 1em 0;
                 padding: 0.5rem;
                 margin-inline: -0.5em;
                 border: 1px solid var(--color-neutral-80);
-                box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+                border-radius: 0.5rem;
+                box-shadow: 0 0.1em 0.3em var(--color-neutral-90);
                 text-align: center;
                 background: white;
+            }
 
-                > figcaption {
-                    font: 500 75% var(--font-sans);
-                    background: var(--color-neutral-95);
-                    padding: 0.5rem;
-                    margin: -0.5rem;
-                    margin-top: 0.5rem;
-                    counter-increment: figure;
-                    text-align: left;
+            figure img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 0.25rem;
+            }
 
-                    &::before {
-                        content: "Figure " counter(figure) ": ";
-                        font-weight: bold;
-                        color: var(--color-neutral-40);
-                    }
+            figure > figcaption {
+                font: 500 88% system-ui;
+                background: var(--color-neutral-95);
+                padding: 0.6rem 0.8rem;
+                margin: 0.5rem -0.5rem -0.5rem;
+                counter-increment: figure;
+                text-align: left;
+                border-bottom-left-radius: 0.4rem;
+                border-bottom-right-radius: 0.4rem;
+            }
 
-                    a:not(:hover, :focus, :active) {
-                        color: inherit;
-                        text-decoration: underline;
-                        text-decoration-color: color-mix(
-                            in lab,
-                            currentColor,
-                            transparent 70%
-                        );
-                    }
-                }
+            figure > figcaption::before {
+                content: "Figure " counter(figure) ". ";
+                font-weight: bold;
+                color: var(--color-neutral-40);
+            }
+
+            .decision-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-block: 0.75em 1.5em;
+                font-size: 0.95em;
+            }
+
+            .decision-table th, .decision-table td {
+                padding: 0.6rem 0.7rem;
+                text-align: left;
+                vertical-align: top;
+                border-bottom: 1px solid var(--color-neutral-90);
+            }
+
+            .decision-table th {
+                background: var(--color-neutral-95);
+                font-weight: 600;
+                color: var(--color-neutral-30);
+                font-size: 0.8em;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+            }
+
+            .decision-table .score {
+                text-align: center;
+                font-weight: 700;
+                white-space: nowrap;
+                font-variant-numeric: tabular-nums;
+            }
+
+            .score.s-pos2 { color: hsl(140 60% 32%); }
+            .score.s-pos1 { color: hsl(140 50% 40%); }
+            .score.s-zero { color: var(--color-neutral-50); }
+            .score.s-neg1 { color: hsl(20 70% 45%); }
+            .score.s-neg2 { color: hsl(0 70% 40%); }
+
+            .reflection p { margin-block: 0.9em; }
+
+            footer {
+                margin-block: 2.5em 1em;
+                color: var(--color-neutral-50);
+                font-size: 0.85em;
+                text-align: center;
             }
         </style>
     </head>
@@ -148,52 +232,262 @@
                 Persuasive or Deceptive Visualization?
             </h1>
 
-            <p><strong>Your Name</strong> — <em>Your UCSD Email Address</em></p>
+            <p class="team">
+                Maxime Chung &middot; <em>mac050@ucsd.edu</em><br />
+                Sana Gupta &middot; <em>svgupta@ucsd.edu</em><br />
+                Rose Park &middot; <em>sep032@ucsd.edu</em>
+            </p>
         </header>
 
         <main>
-            <h2>Proposition: [STATE PROPOSITION]</h2>
+            <p class="proposition">
+                Since 2000, economic growth has not made countries healthier.
+            </p>
 
-            <section>
-                <h3>FOR the Proposition</h3>
+            <p>
+                We built two pairs of charts from the World Bank Human Development Indicators
+                (1960&ndash;2020). Each pair argues the opposite side of the same proposition,
+                using the same underlying dataset. The pro pair argues the proposition is
+                <strong>true</strong>. The con pair argues the proposition is <strong>false</strong>.
+                Every chart uses real GDP per capita (constant 2010 US$) and the World Bank&rsquo;s
+                official life-expectancy and population-aging indicators. The persuasion lives in
+                the framing, axis choices, filtering, and titles &mdash; not in fabricated numbers.
+            </p>
 
-                <figure>
-                    <img src="./resources/test_img.png" width=400 alt="" />
-                    <figcaption>BRIEF CAPTION HERE.</figcaption>
-                </figure>
-
-                <p>Design Decisions and Rationale:</p>
-
-                <ul>
-                    <li>RATIONALE_1</li>
-                    <li>RATIONALE_2</li>
-                    <li>RATIONALE_3</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>AGAINST the Proposition</h3>
+            <section class="side pro">
+                <span class="side-header">For the proposition</span>
+                <h3>Growth does not reliably translate into longer lives</h3>
 
                 <figure>
-                    <img src="IMAGE_FILENAME" alt="" />
-                    <figcaption>BRIEF CAPTION HERE.</figcaption>
+                    <img src="images/pro_chart1.png"
+                         alt="Scatter plot of GDP per capita (log scale) vs life expectancy at birth for ~200 countries. The relationship looks visually flat under a slanted title."
+                         loading="lazy" />
+                    <figcaption>
+                        Pro chart 1. Global scatterplot of GDP per capita (constant 2010 US$, log
+                        scale) vs life expectancy at birth, latest available year per country
+                        (2018&ndash;2020). World Bank.
+                    </figcaption>
                 </figure>
 
-                <p>Design Decisions and Rationale:</p>
+                <h4>Design decisions and rationale</h4>
+                <table class="decision-table">
+                    <thead>
+                        <tr><th>Decision</th><th>Score</th><th>Rationale (2&ndash;3 sentences)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Slanted title (&ldquo;does not reliably improve&rdquo;)</td>
+                            <td class="score s-neg2">&minus;2</td>
+                            <td>The chart actually shows a clear positive trend, but the title tells the reader the opposite story. Title-driven framing is one of the most powerful and least defensible persuasion tools because most readers anchor on the headline before they read the axes.</td>
+                        </tr>
+                        <tr>
+                            <td>Log x-axis on GDP per capita</td>
+                            <td class="score s-neg1">&minus;1</td>
+                            <td>A log scale is technically defensible because income is right-skewed, and it makes low- and high-income countries comparable. But it visually compresses the gap between $1,000 and $50,000, flattening the perceived slope of the Preston curve and weakening the upward relationship.</td>
+                        </tr>
+                        <tr>
+                            <td>Y-axis cropped to 45&ndash;85 years</td>
+                            <td class="score s-zero">0</td>
+                            <td>Life expectancy never falls outside this range globally, so the crop is not an invented frame. It does, however, stretch the vertical spread of the points and amplify the visual sense of &ldquo;noise&rdquo; that supports our argument.</td>
+                        </tr>
+                        <tr>
+                            <td>No regression line or fit statistic</td>
+                            <td class="score s-neg1">&minus;1</td>
+                            <td>A regression line on this scatter would have an obvious upward slope and a strong R&sup2;, which would directly contradict the title. Omitting the fit lets the reader see only the spread, not the underlying relationship.</td>
+                        </tr>
+                        <tr>
+                            <td>Use of GDP per capita (constant 2010 US$)</td>
+                            <td class="score s-pos2">+2</td>
+                            <td>Constant-2010 US dollars is the standard way to compare real purchasing power across countries and across years. We picked the correct indicator and explicitly fixed an earlier draft that mistakenly used the &ldquo;Discrepancy in expenditure estimate of GDP&rdquo; column &mdash; that earlier choice was a bug, not a deceptive technique.</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                <ul>
-                    <li>RATIONALE_1</li>
-                    <li>RATIONALE_2</li>
-                    <li>RATIONALE_3</li>
-                </ul>
+                <figure>
+                    <img src="images/pro_chart2.png"
+                         alt="Same scatter restricted to countries with GDP per capita between $5,000 and $25,000, with the seven lowest-life-expectancy countries highlighted in red and labeled."
+                         loading="lazy" />
+                    <figcaption>
+                        Pro chart 2. Filtered middle-income band ($5,000&ndash;$25,000 GDP per
+                        capita, constant 2010 US$). The seven countries with the lowest life
+                        expectancy in this band are highlighted and labeled.
+                    </figcaption>
+                </figure>
+
+                <h4>Design decisions and rationale</h4>
+                <table class="decision-table">
+                    <thead>
+                        <tr><th>Decision</th><th>Score</th><th>Rationale (2&ndash;3 sentences)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Filter to GDP per capita $5,000&ndash;$25,000 labeled as &ldquo;wealthier countries&rdquo;</td>
+                            <td class="score s-neg2">&minus;2</td>
+                            <td>$5k&ndash;$25k is middle-income, not wealthy &mdash; calling it &ldquo;wealthier&rdquo; is a misleading label. Worse, this filter excludes the high-income countries where the GDP&ndash;health relationship is strongest, manufacturing the visual impression that wealth does not translate to longevity.</td>
+                        </tr>
+                        <tr>
+                            <td>One-sided red highlight on the seven lowest-life-expectancy countries</td>
+                            <td class="score s-neg2">&minus;2</td>
+                            <td>We deliberately did not provide an equivalent green highlight for the seven highest-life-expectancy countries in the same band, which would have created a balanced view. The asymmetric encoding primes the reader to see &ldquo;wealth doesn&rsquo;t buy long lives&rdquo; rather than the actual range of outcomes.</td>
+                        </tr>
+                        <tr>
+                            <td>Direct labels on the highlighted red countries</td>
+                            <td class="score s-pos1">+1</td>
+                            <td>Labeling the red points by name lets the reader audit the cherry-pick &mdash; the countries are real and the values are real. The honesty of execution partially redeems the dishonesty of selection.</td>
+                        </tr>
+                        <tr>
+                            <td>Same Y-variable (life expectancy) as Pro Chart 1</td>
+                            <td class="score s-pos1">+1</td>
+                            <td>Keeping the dependent variable consistent across both pro-side charts means the reader is being persuaded by visual choices, not by a switched metric. This is good methodological hygiene even within a deliberately persuasive piece.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
 
-            <section>
-                <h2>Final Reflection</h2>
+            <section class="side con">
+                <span class="side-header">Against the proposition</span>
+                <h3>Wealth and health rise together</h3>
 
-                <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
+                <figure>
+                    <img src="images/con_chart1.png"
+                         alt="Dual-axis line chart for China from 2000 to 2020. GDP per capita (left axis, blue) and the share of population aged 65 and older (right axis, red) appear to track tightly upward together."
+                         loading="lazy" />
+                    <figcaption>
+                        Con chart 1. China, 2000&ndash;2020. GDP per capita (constant 2010 US$, left
+                        axis, blue) vs population aged 65 and older (% of total, right axis, red).
+                        World Bank.
+                    </figcaption>
+                </figure>
+
+                <h4>Design decisions and rationale</h4>
+                <table class="decision-table">
+                    <thead>
+                        <tr><th>Decision</th><th>Score</th><th>Rationale (2&ndash;3 sentences)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dual-axis chart with independently scaled left and right axes</td>
+                            <td class="score s-neg2">&minus;2</td>
+                            <td>Each axis is scaled to the maximum of its own series, so the two lines visually appear to track one another regardless of whether they actually move at the same relative rate. This is the textbook dual-axis deception &mdash; readers see &ldquo;they rise together,&rdquo; not &ldquo;these are two unrelated scales.&rdquo;</td>
+                        </tr>
+                        <tr>
+                            <td>Title uses &ldquo;drives&rdquo; (causal language)</td>
+                            <td class="score s-neg1">&minus;1</td>
+                            <td>The chart shows a joint time trend, not a causal mechanism. Using &ldquo;drives&rdquo; in the title implies the reader is looking at evidence for causation when they are looking at evidence for correlation.</td>
+                        </tr>
+                        <tr>
+                            <td>Single country (China) instead of a global view</td>
+                            <td class="score s-neg1">&minus;1</td>
+                            <td>China is the most dramatic post-2000 GDP-per-capita success story, so its trajectory exaggerates what wealth growth typically produces. A global view would include countries where wealth grew without aging gains.</td>
+                        </tr>
+                        <tr>
+                            <td>Proxy substitution: % age 65+ as a stand-in for &ldquo;health&rdquo;</td>
+                            <td class="score s-neg1">&minus;1</td>
+                            <td>Population aging is driven roughly equally by survival improvements and by falling birth rates. China&rsquo;s one-child policy artificially inflates the age-65+ share independently of any health gain. This proxy looks like a health metric but is partly a fertility metric.</td>
+                        </tr>
+                        <tr>
+                            <td>GDP per capita measured in constant 2010 US dollars</td>
+                            <td class="score s-pos2">+2</td>
+                            <td>This is the right indicator for comparing real purchasing power across years &mdash; it strips out inflation and currency effects. Even within a slanted chart, the underlying income series is honestly constructed.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <figure>
+                    <img src="images/con_chart2.png"
+                         alt="Scatter of annual global mean GDP per capita vs annual global mean life expectancy from 2000 to 2020, colored by year, with a tight linear regression fit and a high R-squared."
+                         loading="lazy" />
+                    <figcaption>
+                        Con chart 2. Annual global cross-country means, 2000&ndash;2020. Each point
+                        is one year&rsquo;s worldwide mean GDP per capita and worldwide mean life
+                        expectancy. Linear fit shown with R&sup2;.
+                    </figcaption>
+                </figure>
+
+                <h4>Design decisions and rationale</h4>
+                <table class="decision-table">
+                    <thead>
+                        <tr><th>Decision</th><th>Score</th><th>Rationale (2&ndash;3 sentences)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aggregating to one global mean per year</td>
+                            <td class="score s-neg2">&minus;2</td>
+                            <td>Both numerator and denominator rise smoothly over time, so plotting their annual means produces a near-deterministic line that is more about &ldquo;both measures grew between 2000 and 2020&rdquo; than about a real wealth&ndash;health relationship. The country-level scatter is far noisier and less convincing.</td>
+                        </tr>
+                        <tr>
+                            <td>Linear regression line and R&sup2; reported on the aggregated means</td>
+                            <td class="score s-neg1">&minus;1</td>
+                            <td>The R&sup2; on annual global means is artificially high because aggregation removes between-country variance. A reader sees a tight fit and assumes the underlying country-level relationship is just as tight, which it is not.</td>
+                        </tr>
+                        <tr>
+                            <td>Color encoding by year (viridis colorbar) with first/last year labeled</td>
+                            <td class="score s-pos2">+2</td>
+                            <td>The color scale and the explicit 2000 and 2020 endpoint labels reveal that this is a time trend rather than a pure cross-section. A reader can see for themselves that we are not pretending the data is independent across points.</td>
+                        </tr>
+                        <tr>
+                            <td>Same Y-variable (life expectancy) as the pro-side charts</td>
+                            <td class="score s-pos1">+1</td>
+                            <td>Three of our four charts use life expectancy on the Y axis, so the disagreement between pro and con is about framing, not about which health outcome we measure. This makes the side-by-side comparison fair.</td>
+                        </tr>
+                        <tr>
+                            <td>Time window of 2000&ndash;2020</td>
+                            <td class="score s-zero">0</td>
+                            <td>This window matches the proposition&rsquo;s &ldquo;since 2000&rdquo; framing exactly. It is a neutral choice in the sense that we did not cherry-pick a window that started or ended at a flattering point.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
+
+            <section class="reflection">
+                <h2>Final reflection</h2>
+
+                <p>
+                    The hardest part of this project was the pro side. The post-2000 relationship
+                    between GDP per capita and life expectancy is one of the most stable positive
+                    relationships in development economics &mdash; the Preston curve fights back
+                    against any chart that tries to argue against it. We had to lean almost
+                    entirely on framing devices (a slanted title, a log axis, a one-sided
+                    highlight, a manipulative income filter) to push the same data toward the
+                    opposite conclusion. The con side, by contrast, was uncomfortably easy: the
+                    dual-axis trick on a single fast-growing country is so visually dominant that
+                    it wins before the reader has read either label.
+                </p>
+
+                <p>
+                    What surprised us is how much work the title alone does. Pro chart 1 is, on
+                    its merits, a textbook positive scatter. Strip the title off and most readers
+                    would describe the relationship as &ldquo;clearly upward.&rdquo; Add the
+                    headline &ldquo;economic growth does not reliably improve life expectancy&rdquo;
+                    and many of the same readers will start mentally cataloguing the outliers and
+                    underweighting the trend line that isn&rsquo;t even drawn. Titles aren&rsquo;t
+                    decoration. They are the chart&rsquo;s loudest claim.
+                </p>
+
+                <p>
+                    Our working definition of ethical visualization is this: a reader who looks at
+                    the chart for thirty seconds should walk away with the same understanding they
+                    would reach if they had honestly analyzed the underlying data themselves.
+                    Persuasion lives in choosing what to emphasize within an honest representation
+                    &mdash; ordering, color, annotation, the choice of which subset to zoom into.
+                    Deception lives in choosing what to obscure so the reader misreads what is
+                    actually there. By that definition, pro chart 2&rsquo;s labeled red highlights
+                    are persuasive but not deceptive, because the labeled countries are real and
+                    the reader can audit them. Pro chart 1&rsquo;s slanted title and con chart
+                    1&rsquo;s dual-axis are deceptive, because they require the reader to ignore
+                    or misread information that is in front of them. Where we draw the line:
+                    visual choices that survive being explained out loud are persuasive; visual
+                    choices that fall apart the moment a reader notices them are deceptive.
+                </p>
+            </section>
+
+            <footer>
+                Data: <a href="https://data.worldbank.org/indicator">World Bank, World Development
+                Indicators</a>, mirrored at
+                <a href="https://github.com/light-and-salt/World-Bank-Data-by-Indicators">light-and-salt/World-Bank-Data-by-Indicators</a>.
+                Charts generated with Python (pandas + matplotlib) via
+                <code>scripts/make_charts.py</code>.
+            </footer>
         </main>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"c822b88e119346678db149ed7b7721c9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-</body>
+    </body>
 </html>
