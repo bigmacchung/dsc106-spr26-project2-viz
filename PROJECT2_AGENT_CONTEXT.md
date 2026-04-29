@@ -162,7 +162,19 @@ After running the copy commands above: **yes**.
 
 - 2026-04-28 (v1): Built two compound viz with different country selection per side. Maxime correctly pushed back: cherry-picking different countries is unfair framing, not deceptive design. The persuasive lesson of the assignment is missed.
 - 2026-04-28 (v2): Rebuilt with same-data principle. Both charts now plot the SAME 179 countries in 2019 with identical indicators. Persuasion lives entirely in axis scaling, fit line, annotations, and titles.
-- 2026-04-28 (v4, CURRENT): Polish pass with the SWD chart helpers Maxime uploaded.
+- 2026-04-28 (v5, CURRENT): Critique pass addressing 10 specific issues Maxime raised.
+  - **Proposition rewritten** for true opposition: "National income is a reliable shortcut for understanding public health outcomes." FOR = income IS reliable, AGAINST = income misleads. The earlier "associated, but not fully" version had two compatible clauses, not opposing claims.
+  - **FOR/AGAINST flipped** to match: con-side scatter (log axis, fit) and small multiples are now FOR; pro-side scatter (linear) and residuals lollipop are now AGAINST. File names retained for git diff sanity but section labels in HTML reflect the new mapping.
+  - **Title softening**: "Money Explains 70% of Life Expectancy" → "GDP Tracks 70% of the Life Expectancy Pattern" (no causal overclaim). "Every Path Bends Toward Longer Life" → "Across Six Decades, Income and Life Expectancy Climbed Together in These Six Countries" (names the sample).
+  - **Confidence band relabel**: the shaded region around the OLS fit is now labeled and described as "residual spread (mean fit ± 1.96 std of residuals)" everywhere, not a "95% confidence band."
+  - **Indicator codes corrected**: header used to claim SP.DYN.LE00.IN (total). Now correctly states we computed life expectancy as the unweighted mean of SP.DYN.LE00.MA.IN and SP.DYN.LE00.FE.IN, with the ~0.1 year offset disclosed.
+  - **Residual count consistency**: charts use 10+10 lollipops with 159 middle countries (179 - 20). HTML matches.
+  - **Color blind mitigation**: red circles vs. green squares (shape redundancy) on the highlight encoding, plus explicit text labels at every highlighted point.
+  - **Self-incriminating language softened**: "biggest lie of omission" → "strongest omission" / "most ethically questionable choice."
+  - **Intro shortened**: removed the upfront stat cards, validation note, and scoring key from the lead. Scoring scale moved to the methodology section. Reader hits the first chart faster.
+  - **Subagent-line trimmed**: kept a single sentence under validation that mentions the data:validate-data skill, dropped the long subagent-attribution paragraph.
+  - **Footer note** explicitly explains that base64 embedding is intentional and that standalone PNGs also ship in the repo, so the file list is no longer self-contradictory.
+- 2026-04-28 (v4): Polish pass with the SWD chart helpers Maxime uploaded.
   - Copied `chart_helpers.py`, `analytics_chart_style.mplstyle`, `chart_palette.py` into a `helpers/` subfolder of the project.
   - Rebuilt all four charts using `swd_style()`, `action_title()`, and `check_label_collisions(fix=True)`. Collision detector auto-resolved 4 collisions on Pro 1, 1 on Con 1, 0–1 on the others.
   - Pro 2 was redrawn at 10×12.5 inches with wider row spacing and the caption moved into figure space below the x-axis label, eliminating the prior caption-vs-title overlap.
