@@ -162,7 +162,14 @@ After running the copy commands above: **yes**.
 
 - 2026-04-28 (v1): Built two compound viz with different country selection per side. Maxime correctly pushed back: cherry-picking different countries is unfair framing, not deceptive design. The persuasive lesson of the assignment is missed.
 - 2026-04-28 (v2): Rebuilt with same-data principle. Both charts now plot the SAME 179 countries in 2019 with identical indicators. Persuasion lives entirely in axis scaling, fit line, annotations, and titles.
-- 2026-04-28 (v3, CURRENT): Expanded to 4 visualizations (2 per side) per assignment requirement. New charts:
+- 2026-04-28 (v4, CURRENT): Polish pass with the SWD chart helpers Maxime uploaded.
+  - Copied `chart_helpers.py`, `analytics_chart_style.mplstyle`, `chart_palette.py` into a `helpers/` subfolder of the project.
+  - Rebuilt all four charts using `swd_style()`, `action_title()`, and `check_label_collisions(fix=True)`. Collision detector auto-resolved 4 collisions on Pro 1, 1 on Con 1, 0–1 on the others.
+  - Pro 2 was redrawn at 10×12.5 inches with wider row spacing and the caption moved into figure space below the x-axis label, eliminating the prior caption-vs-title overlap.
+  - Confirmed no scatter points are jittered. Every dot sits at its literal 2019 GDP and life-expectancy value. Documented the no-jitter check explicitly in the methodology section.
+  - Updated methodology section in index.html to credit the helpers, the data-scientist subagent persona (from `awesome-claude-code-subagents-main/categories/05-data-ai/data-scientist.md`, spawned via the Agent tool), and the `/data:validate-data` skill pass.
+  - Final HTML: 1.32 MB self-contained, 4 charts embedded as base64.
+- 2026-04-28 (v3): Expanded to 4 visualizations (2 per side) per assignment requirement. New charts:
   - Pro 2: residuals lollipop chart that uses con side's own log-GDP regression line. Shows top 12 negative and top 12 positive residuals; collapses middle 155 countries into a single gray band. Title: "Money Explains 70% of Life Expectancy. The Other 30% Is a 20-Year Gap."
   - Con 2: small-multiples time series 1960-2019 for six anchor countries (Ethiopia, India, China, South Korea, US, Japan). Twin-axis: life expectancy in blue, GDP per capita on log secondary axis in gray. "+N yrs life" badge per panel. Title: "Six Decades, Six Countries: Every Path Bends Toward Longer Life as Wealth Climbs."
   - Pro 2 was specced by a "data-scientist" subagent persona spawned via the Agent tool, drawing from the awesome-claude-code-subagents-main folder. It honestly steel-mans the con side by using their regression line, which earned it the only +2 score in the project.
